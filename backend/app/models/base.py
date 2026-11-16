@@ -3,7 +3,7 @@ from datetime import datetime
 import uuid
 from typing import Optional
 
-from sqlalchemy import CHAR, DateTime, String, TypeDecorator, func
+from sqlalchemy import CHAR, DateTime, ForeignKey, String, TypeDecorator, func
 from sqlalchemy.dialects.postgresql import UUID as PG_UUID
 from sqlalchemy.orm import DeclarativeBase, Mapped, declared_attr, mapped_column
 
@@ -50,7 +50,7 @@ class TenantMixin:
 
     @declared_attr
     def tenant_id(cls) -> Mapped[uuid.UUID]:
-        return mapped_column(GUID, nullable=False, index=True)
+        return mapped_column(GUID, ForeignKey("tenants.id", ondelete="CASCADE"), nullable=False, index=True)
 
 
 class TimestampMixin:

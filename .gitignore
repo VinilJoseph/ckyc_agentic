@@ -65,7 +65,7 @@ venv.bak/
 
 # Local storage and tenant uploads
 data/storage/tenants/
-storage/
+/storage/
 
 # Node modules / frontend build
 node_modules/
