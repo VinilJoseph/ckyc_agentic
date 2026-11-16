@@ -299,7 +299,7 @@ async def list_email_exceptions(
 async def assign_email_exception(
     id: str,
     payload: EmailExceptionAssignRequest,
-    background_tasks: Optional[BackgroundTasks] = None,
+    background_tasks: BackgroundTasks,
     db: AsyncSession = Depends(get_db),
     x_tenant_id: Optional[str] = Header(None, alias="X-Tenant-ID"),
     current_user: Optional[User] = Depends(get_optional_user),

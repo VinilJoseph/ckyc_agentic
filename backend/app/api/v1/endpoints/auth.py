@@ -8,8 +8,7 @@ from app.core.config import settings
 from app.core.database import get_db
 from app.core.dependencies import get_current_user
 from app.core.security import create_access_token, generate_csrf_token, verify_password
-from app.models.tenant import TenantMembership
-from app.models.user import User
+from app.models.user import TenantMembership, User
 from pydantic import BaseModel, EmailStr
 
 router = APIRouter()

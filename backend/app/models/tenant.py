@@ -60,3 +60,7 @@ class UsageRecord(Base, TenantMixin):
     )
 
     tenant: Mapped["Tenant"] = relationship("Tenant", back_populates="usage_records")
+
+
+# Re-export TenantMembership for compatibility
+from app.models.user import TenantMembership  # noqa: F401, E402
