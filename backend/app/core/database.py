@@ -42,7 +42,7 @@ def receive_do_orm_execute(orm_execute_state):
                 with_loader_criteria(
                     TenantMixin,
                     lambda cls: cls.tenant_id == tenant_id,
-                    include_run_time_objects=True,
+                    include_aliases=True,
                 )
             )
 
