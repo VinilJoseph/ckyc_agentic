@@ -8,7 +8,14 @@ Includes:
 """
 from contextlib import asynccontextmanager
 import os
+import sys
 from pathlib import Path
+
+# Ensure backend directory is in sys.path for direct module resolution
+_backend_dir = Path(__file__).resolve().parent.parent
+if str(_backend_dir) not in sys.path:
+    sys.path.insert(0, str(_backend_dir))
+
 from fastapi import FastAPI, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
